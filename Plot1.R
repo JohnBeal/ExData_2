@@ -17,7 +17,7 @@ SCC<-readRDS("Source_Classification_Code.rds")
 NEI_year<-group_by(NEI, year)
 AnnEmiss<-as.data.frame(summarise(NEI_year, sum(Emissions)))
 
-##Plot total annual emissions vs. year for 1999, 2002, 2005, 2008; and output to png file
+##Plot total annual emissions  in the USA vs. year for 1999, 2002, 2005, 2008; and output to png file
 png("Plot1.png")
 par(mar = c(5.1, 6, 4.1, 2.1))
 barplot((AnnEmiss[,2]/1e6), names.arg = c("1999", "2002", "2005", "2008"), 
