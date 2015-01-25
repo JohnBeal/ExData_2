@@ -19,8 +19,8 @@ NEI_Baltimore_type<-group_by(NEI_Baltimore, year, type)
 AnnEmiss_Baltimore_type<-as.data.frame(summarise(NEI_Baltimore_type, TotEmiss = sum(Emissions)))
 
 ##Plot annual total emissions per type (point, nonpoint, onroad, nonroad) from Baltimore, MD for 1999, 2002, 2005, 2008
-png("Plot3.png")
+#png("Plot3.png")
 m<-ggplot(AnnEmiss_Baltimore_type, aes(x = year, y = TotEmiss, group = type, col = type))
-m<-m+geom_ribbon(aes(ymin=0, ymax=TotEmiss, fill = type, alpha = 0.75, position = "stack"))
+m<-m+geom_line(aes(fill = type, alpha = 0.75))
 m<-m+geom_area(aes(y = TotEmiss, fill = type))
-dev.off()
+#dev.off()
