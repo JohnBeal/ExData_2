@@ -27,12 +27,14 @@ AnnEmiss_coal<-summarise(NEI_coal_year, TotEmiss = sum(Emissions))
 
 
 ##Plot annual emissions related to coal combustion in the USA for 1999, 2002, 2005, and 2008.
-png("Plot4.png")
+png("Plot4.png", width = 700)
 m<-ggplot(AnnEmiss_coal, aes(x = year, weight = (TotEmiss/1e3)))
 m<-m + geom_bar(width = 0.5, colour = "blue", fill = "blue")
 m<-m + scale_y_continuous(limits = c(0, 600))
-m<-m + theme(text = element_text(size = 20), plot.title = element_text(size = rel(1.25)))
+m<-m + theme(text = element_text(size = 20),  
+             axis.title.y = element_text(vjust = 1.25))
 m<-m + labs(title = "Annual emissions (PM2.5) from combustion of coal \n in the United States in the period 1999-2008")
 m<-m + ylab("Emissions (PM2.5) from coal combustion \n / tons (000s)")
 m<-m + xlab("Year")
+m
 dev.off()

@@ -21,7 +21,8 @@ AnnEmiss<-as.data.frame(summarise(NEI_year, sum(Emissions)))
 png("Plot1.png")
 par(mar = c(5.1, 6, 4.1, 2.1))
 barplot((AnnEmiss[,2]/1e6), names.arg = c("1999", "2002", "2005", "2008"), 
-        main = "Total annual emissions (PM2.5) in the United States in the period 1999-2008", xlab = "Year",
+        main = "Total annual emissions (PM2.5) in the United States \n in the period 1999-2008", xlab = "Year",
         ylab = "Total annual emissions (PM2.5) \n / tons (000,000s)", 
-        axis.lty = 1, ylim = c(0,10))  ##Convert scale to tons (000,000s)
+        axis.lty = 1, ylim = c(0,10),
+        col = "blue")                                     ##Convert scale to tons (000,000s)
 dev.off()

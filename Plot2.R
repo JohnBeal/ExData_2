@@ -22,7 +22,7 @@ AnnEmiss_Baltimore<-as.data.frame(summarise(NEI_Baltimore_year, sum(Emissions)))
 png("Plot2.png")
 par(mar = c(5.1, 6, 4.1, 2.1))
 barplot((AnnEmiss_Baltimore[,2]/1e3), names.arg = c("1999", "2002", "2005", "2008"), 
-        main = "Total annual emissions (PM2.5) in Baltimore City, MD in the period 1999-2008", xlab = "Year",
+        main = "Total annual emissions (PM2.5) in Baltimore City, MD \n in the period 1999-2008", xlab = "Year",
         ylab = "Total annual emissions (PM2.5) \n / tons (000s)", 
-        axis.lty = 1, ylim = c(0,10))  ##Convert scale to tons (000,000s)
+        axis.lty = 1, ylim = c(0,10), col = "blue")  ##Convert scale to tons (000,000s)
 dev.off()

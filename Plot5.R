@@ -22,12 +22,13 @@ NEI_onroad_year<-group_by(NEI_onroad, year)
 AnnEmiss_onroad<-summarise(NEI_onroad_year, TotEmiss = sum(Emissions))
 
 ##Plot annual emissions from motor vehicles ("Onroad") in the USA for 1999, 2002, 2005, and 2008.
-png("Plot5.png")
+png("Plot5.png", width = 700)
 m<-ggplot(AnnEmiss_onroad, aes(x = year, weight = (TotEmiss/1e3)))
 m<-m + geom_bar(width = 0.5, colour = "blue", fill = "blue")
 m<-m + scale_y_continuous(limits = c(0, 200))
-m<-m + theme(text = element_text(size = 20), plot.title = element_text(size = rel(1.25)))
+m<-m + theme(text = element_text(size = 20))
 m<-m + labs(title = "Annual emissions (PM2.5) from motor vehicles \n in the United States in the period 1999-2008")
 m<-m + ylab("Emissions (PM2.5) from motor vehicles \n / tons (000s)")
 m<-m + xlab("Year")
+m
 dev.off()
